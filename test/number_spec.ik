@@ -927,6 +927,12 @@ describe(Number,
       0xFFF should have kind("Number Integer")
     )
 
+    it("should have a character representation",
+      97 char should == "a"
+      99 char should == "c"
+      0x62 char should == "b"
+    )
+
     describe("%", 
       it("should return the number when taking the modulo of 0", 
         (0%0) should == 0

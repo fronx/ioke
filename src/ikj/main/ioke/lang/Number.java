@@ -623,6 +623,14 @@ public class Number extends IokeData {
                 }
             }));
 
+        integer.registerMethod(obj.runtime.newNativeMethod("Returns a character representation of the object", new TypeCheckingNativeMethod.WithNoArguments("char", integer) {
+                @Override
+                public Object activate(IokeObject method, Object on, List<Object> args, Map<String, Object> keywords, IokeObject context, IokeObject message) throws ControlFlow {
+                    return method.runtime.newText(Character.toString((char)Number.intValue(on).intValue()));
+                }
+            }));
+
+
         rational.registerMethod(runtime.newNativeMethod("Returns a text representation of the object", new NativeMethod.WithNoArguments("asText") {
                 @Override
                 public Object activate(IokeObject method, Object on, List<Object> args, Map<String, Object> keywords, IokeObject context, IokeObject message) throws ControlFlow {
